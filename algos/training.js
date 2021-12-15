@@ -136,10 +136,5 @@ describe('Sample tests', function () {
       [1, 8, 2],
       'a was [1,8,2], b was []'
     );
-    Test.assertDeepEquals(
-      arrayDiff([1, 2, 3], [1, 2]),
-      [3],
-      'a was [1,2,3], b was [1,2]'
-    );
   });
 });
