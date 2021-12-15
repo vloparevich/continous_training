@@ -30,6 +30,7 @@ export default function IdCard2(props) {
           <b>Birth: </b>
           {birth}
         </div>
+        {props.children && props.children}
       </div>
     </div>
   );

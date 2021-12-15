@@ -16,6 +16,7 @@ import Greetings2 from './components/Greetings-2/Greetings2';
 import Random2 from './components/Random-2/Random2';
 import BoxColor2 from './components/BoxColor-2/BoxColor2';
 import CreditCard2 from './components/CreditCard-2/CreditCard2';
+import Rating2 from './components/Rating-2/Rating2';
 
 function App() {
   return (
@@ -160,6 +161,20 @@ function App() {
         bgColor="#ddbb55"
         color="white"
       />
+      <Rating2 stars="1" />
+      <Rating2 stars="3" />
+      <Rating2 stars="2" />
+
+      <IdCard2
+        lastName="Delores "
+        firstName="Obrien"
+        gender="female"
+        height={172}
+        //  birth={new Date('1988-05-11')}
+        picture="https://randomuser.me/api/portraits/women/44.jpg"
+      >
+        <Rating2 stars="3" />
+      </IdCard2>
     </div>
   );
 }
