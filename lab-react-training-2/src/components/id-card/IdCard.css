@@ -1,0 +1,7 @@
+.card {
+    display: flex;
+}
+
+#profile-pic {
+    width: 100px;
+}

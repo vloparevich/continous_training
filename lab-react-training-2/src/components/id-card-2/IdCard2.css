@@ -1,0 +1,27 @@
+.cardBox {
+    display: flex;
+    max-width: 75%;
+    margin: .4rem auto;
+    justify-content: start;
+    border: 1px black solid;
+    flex-direction: row;
+}
+
+.imageBox {
+    margin: .3rem;
+    display: flex;
+    text-align: left;
+}
+
+.idCardImage {
+    height: 100%;
+    width: 100%;
+}
+
+.contentBox {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    text-align: left;
+    padding-top: .3rem;
+}

@@ -1,0 +1,8 @@
+.greetingsBox {
+    border: 1px solid black;
+    display: flex;
+    margin: .3rem auto;
+    width: 75%;
+    font-size: 2rem;
+    justify-content: start;
+}
