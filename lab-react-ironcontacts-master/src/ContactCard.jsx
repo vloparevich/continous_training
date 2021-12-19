@@ -3,7 +3,6 @@ import './ContactCard.css';
 
 export default function ContactCard(props) {
   const { name, pictureUrl, popularity, wonOscar, wonEmmy } = props.details;
-  console.log('won oscar', wonOscar);
   return (
     <tr>
       <td>
@@ -17,6 +16,9 @@ export default function ContactCard(props) {
       </td>
       <td>{wonOscar && <p>🏆</p>}</td>
       <td>{wonEmmy && <p>🥳</p>}</td>
+      <td>
+        <button onClick={() => props.deleteContact()}>Delete</button>
+      </td>
     </tr>
   );
 }
