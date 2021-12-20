@@ -1,0 +1,19 @@
+.foodCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    text-align: left;
+    margin: .5rem;
+}
+
+.foodList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+#divider {
+    width: 80%;
+    color: gray;
+}

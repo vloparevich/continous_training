@@ -1,0 +1,17 @@
+#addFoodForm * {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#addFoodForm input {
+    border: 1px solid #F0F0F0;
+    border-radius: .2rem;
+}
+
+#addFoodForm button {
+    margin: 1rem auto;
+    width: 7rem;
+}
