@@ -11,16 +11,15 @@ function App() {
   const [filteredFood, setFilteredFood] = useState(allFoods);
 
   const handleAddNewFood = (newFood) => {
-    setFoods([...allFoods, newFood]);
-  };
-
-  const handleDeletion = (name) => {
-    const updatedFoodds = allFoods.filter((food) => food.name !== name);
-    setFoods(updatedFoodds);
+    setFilteredFood([...filteredFood, newFood]);
   };
 
   const handleSearch = (filtered) => {
     setFilteredFood(filtered);
+  };
+
+  const handleDeletion = (name) => {
+    setFilteredFood(filteredFood.filter((food) => food.name !== name));
   };
 
   return (
