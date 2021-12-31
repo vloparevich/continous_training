@@ -52,7 +52,7 @@ export default function CountryDetails() {
                     {
                       listOfCountries?.find(
                         (country) => country.alpha3Code === alpha3Code
-                      ).name.common
+                      )?.name.common
                     }
                     <hr></hr>
                   </li>
