@@ -13,7 +13,6 @@ export default function CountriesList(props) {
         {countriesList.map((country, i) => (
           <CountryCard country={country} key={i} />
         ))}
-        <hr></hr>
       </ul>
     </div>
   );

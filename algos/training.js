@@ -140,12 +140,23 @@ describe('Sample tests', function () {
 });
 
 function twoSum(numbers, target) {
-  for(let i = 0; i < numbers.length - 1; i++){
-    for(let j = 1 + i; j < numbers.length; j++){
-      if(numbers[i]+numbers[j] === target){
+  for (let i = 0; i < numbers.length - 1; i++) {
+    for (let j = 1 + i; j < numbers.length; j++) {
+      if (numbers[i] + numbers[j] === target) {
         return [i, j];
       }
     }
   }
- return [];
+  return [];
+}
+
+function digitalRoot(n) {
+  // 842 => 14 => 5
+  let result = 0;
+  let arr = (n + '').split('');
+  while (arr.length >= 2) {
+    result = arr.reduce((acc, curr) => (acc += +curr), 0);
+    arr = (result + '').split('');
+  }
+  return result;
 }
