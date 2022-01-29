@@ -1,5 +1,6 @@
 const Product = require('../models/product');
-exports.getAddProduct = (req, res, next) => {
+
+exports.addProduct = (req, res, next) => {
   res.render('admin/add-product', {
     pageTitle: 'Add Product',
     path: '/admin/add-product',
@@ -10,29 +11,26 @@ exports.getAddProduct = (req, res, next) => {
 };
 
 exports.postAddProduct = (req, res, next) => {
-  const product = new Product(req.body.title);
+  const { title, imageUrl, price, description } = req.body;
+  const product = new Product(title, imageUrl, price, description);
   product.save();
-  res.redirect('/');
+  res.redirect('/products');
 };
 
 exports.getProducts = (req, res, next) => {
   Product.fetchAll((products) => {
-    res.render('shop/product-list', {
+    res.render('admin/products', {
       prods: products,
-      pageTitle: 'Shop',
-      path: '/',
-      docTitle: 'Shop',
-      hasProducts: products.length > 0,
-      activeShop: true,
-      productsCss: true,
+      pageTitle: 'Admin Products',
+      path: '/admin/products',
     });
   });
 };
 
 exports.getCart = (req, res, next) => {
   res.render('shop/cart', {
-    pageTitle: 'Cart',
-    path: '/cart',
-    docTitle: 'Cart',
+    path: '/admin/cart',
+    pageTitle: 'Your Cart',
+    docTitle: 'Carteeeee',
   });
 };
