@@ -11,10 +11,10 @@ router.get('/products/:id', shopController.getProductDetails);
 
 router.get('/cart', shopController.getCart);
 
+router.post('/cart', shopController.addToCart);
+
 router.get('/checkout', shopController.getCheckout);
 
 router.get('/orders', shopController.getOrders);
-
-router.post('/cart', shopController.addToCart);
 
 module.exports = router;
