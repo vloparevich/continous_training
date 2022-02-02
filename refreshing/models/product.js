@@ -1,6 +1,7 @@
 const { timeStamp, Console } = require('console');
 const fs = require('fs');
 const path = require('path');
+const Cart = require('./cart');
 
 const p = path.join(
   path.dirname(require.main.filename),
@@ -49,8 +50,9 @@ module.exports = class Product {
     });
   }
 
-  static deleteProduct(id) {
+  static deleteProduct(id, cb) {
     getProductsFromFile((products) => {
+      const product = products.find((prod) => prod.id === id);
       if (id) {
         const existingProductIndex = products.findIndex(
           (prod) => prod.id === id
@@ -59,6 +61,8 @@ module.exports = class Product {
         updatedProds.splice(existingProductIndex, 1);
         fs.writeFile(p, JSON.stringify(updatedProds), (err) => {
           if (!err) {
+            Cart.deleteProductFromCart(id, product.price);
+            cb();
           }
         });
       }
