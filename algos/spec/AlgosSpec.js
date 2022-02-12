@@ -1,8 +1,8 @@
 const getDupesAsStringFactory = require('../src/training');
 
-describe('Getting unique dupes from string input by using function factory', () => {
+describe('Getting dupes from string input by using function factory', () => {
   it('should return string of unique dupes via set approach stored in the closure', () => {
-    expect(getDupesAsStringFactory('viaSet')('homedepot')).toEqual('eo');
+    expect(getDupesAsStringFactory('viaSet')('abrakadabra')).toEqual('aaabra');
   });
 
   it('should return string of unique dupes via filter approach stored in the closure', () => {

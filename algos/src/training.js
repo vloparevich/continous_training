@@ -55,8 +55,8 @@ function digitalRoot(n) {
 
 //==============================================================
 module.exports = getDupesAsStringFactory = (approach) => {
-  if (approach === 'viaSet') {
-    return (string) => {
+  return function (string) {
+    if (approach === 'viaSet') {
       let result = '';
       const set = new Set();
       string.split('').forEach((el) => {
@@ -64,13 +64,11 @@ module.exports = getDupesAsStringFactory = (approach) => {
         prevSetLength === set.add(el).size ? (result += el) : '';
       });
       return result;
-    };
-  } else if (approach === 'viaFilter') {
-    return (string) => {
+    } else if (approach === 'viaFilter') {
       return string
         .split('')
         .filter((el, index, arr) => arr.indexOf(el) !== index)
         .join('');
-    };
-  }
+    }
+  };
 };
