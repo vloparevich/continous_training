@@ -35,23 +35,23 @@
 // greet('John', 'Lop');
 // greet('John', 'Lop', 'rus');
 
-function greet(firstName, lastName, language) {
-  language = language || 'en';
-  if (language === 'en') {
-    console.log('hello ', firstName, lastnme);
-  }
+// function greet(firstName, lastName, language) {
+//   language = language || 'en';
+//   if (language === 'en') {
+//     console.log('hello ', firstName, lastnme);
+//   }
 
-  if (language === 'es') {
-    console.log('Hola ', firstName, lastName);
-  }
-}
+//   if (language === 'es') {
+//     console.log('Hola ', firstName, lastName);
+//   }
+// }
 
-function greetEnglish(firstName, lastName) {
-  greet(firstName, lastName, 'en');
-}
-function greetSpanish(firstName, lastName) {
-  greet(firstName, lastName, 'es');
-}
+// function greetEnglish(firstName, lastName) {
+//   greet(firstName, lastName, 'en');
+// }
+// function greetSpanish(firstName, lastName) {
+//   greet(firstName, lastName, 'es');
+// }
 
-greetEnglish('Vadim', 'Lopa', 'en');
-greetSpanish('Vadim', 'Lopa', 'en');
+// greetEnglish('Vadim', 'Lopa', 'en');
+// greetSpanish('Vadim', 'Lopa', 'en');
