@@ -54,7 +54,7 @@ function digitalRoot(n) {
 }
 
 //==============================================================
-module.exports = getDupesAsStringFactory = (approach) => {
+const getDupesAsStringFactory = (approach) => {
   return function (string) {
     if (approach === 'viaSet') {
       let result = '';
@@ -71,4 +71,40 @@ module.exports = getDupesAsStringFactory = (approach) => {
         .join('');
     }
   };
+};
+
+
+const getLetterObject = (arbitraryString) => {
+  return arbitraryString.split('').reduce((acc, el) => {
+    if (el in acc) {
+      acc[el] = acc[el] + 1;
+      return acc
+    } else {
+      return { ...acc, [el]: 1 }
+    }
+  }, {});
+}
+
+const getMaxLetterCount = (arbitraryString) => {
+  const letterObj = getLetterObject(arbitraryString);
+  let maxAppearance = {};
+  for (const key in letterObj) {
+    if (Object.keys(maxAppearance).length === 0) {
+      maxAppearance[key] = letterObj[key]
+    } else {
+      for (const maxAppearedKey in maxAppearance) {
+        if (maxAppearance[maxAppearedKey] < letterObj[key]) {
+          maxAppearance = {};
+          maxAppearance[key] = letterObj[key]
+        }
+      }
+    }
+  }
+  return maxAppearance;
+}
+
+
+module.exports = {
+  getDupesAsStringFactory,
+  getMaxLetterCount
 };
