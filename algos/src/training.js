@@ -77,8 +77,7 @@ const getDupesAsStringFactory = (approach) => {
 const getLetterObject = (arbitraryString) => {
   return arbitraryString.split('').reduce((acc, el) => {
     if (el in acc) {
-      acc[el] = acc[el] + 1;
-      return acc
+      return { ...acc, [el]: acc[el] + 1 }
     } else {
       return { ...acc, [el]: 1 }
     }
@@ -102,6 +101,10 @@ const getMaxLetterCount = (arbitraryString) => {
   }
   return maxAppearance;
 }
+
+
+
+
 
 
 module.exports = {

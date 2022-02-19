@@ -20,10 +20,9 @@ describe('Function factory returns Function object as in closure', () => {
   });
 });
 
-
 describe('Get max letter count as an object via reduce and working with properties', () => {
   it('should return max letter count as an object from arbitrary string', () => {
-    const str = JSON.stringify(getMaxLetterCount('abrakkkkkkkadabra'));
-    expect(str).toEqual('{"k":7}');
+    const str = JSON.stringify(getMaxLetterCount('abrakkkkkadabra'));
+    expect(str).toEqual('{"a":5}');
   })
 });
