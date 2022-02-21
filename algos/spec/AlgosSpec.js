@@ -1,4 +1,4 @@
-const { getDupesAsStringFactory, getMaxLetterCount } = require('../src/training');
+const { getDupesAsStringFactory, getMaxLetterCount, getFirstUniqueCharacter } = require('../src/training');
 
 describe('Getting dupes from string input by using function factory', () => {
   it('should return string of unique dupes via set approach stored in the closure', () => {
@@ -26,3 +26,10 @@ describe('Get max letter count as an object via reduce and working with properti
     expect(str).toEqual('{"a":5}');
   })
 });
+
+describe('GEt first non repeating character from string by using object of letters against the origin string', () => {
+  it('should return first non repeating character from string', () => {
+    const firstNonRepeatingChar = getFirstUniqueCharacter('tseesavvbat');
+    expect(firstNonRepeatingChar).toEqual("b");
+  })
+})

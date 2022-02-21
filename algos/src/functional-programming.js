@@ -44,3 +44,4 @@ console.log('via closure', arr5)
 
 const arr6 = mapForEach2(arr1, delimeterViaBind(2));
 console.log('via binding', arr6)
+

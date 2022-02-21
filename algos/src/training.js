@@ -103,11 +103,20 @@ const getMaxLetterCount = (arbitraryString) => {
 }
 
 
-
-
+const getFirstUniqueCharacter = (str) => {
+  const letterObj = getLetterObject(str);
+  console.log('getFIRST=>', letterObj)
+  for (let i = 0; i < str.length; i++){
+    if(letterObj[str[i]] === 1){
+      return str[i];
+    }
+  }
+  return null;
+}
 
 
 module.exports = {
   getDupesAsStringFactory,
-  getMaxLetterCount
+  getMaxLetterCount,
+  getFirstUniqueCharacter
 };
