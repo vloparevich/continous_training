@@ -73,50 +73,69 @@ const getDupesAsStringFactory = (approach) => {
   };
 };
 
-
 const getLetterObject = (arbitraryString) => {
   return arbitraryString.split('').reduce((acc, el) => {
     if (el in acc) {
-      return { ...acc, [el]: acc[el] + 1 }
+      return { ...acc, [el]: acc[el] + 1 };
     } else {
-      return { ...acc, [el]: 1 }
+      return { ...acc, [el]: 1 };
     }
   }, {});
-}
+};
 
 const getMaxLetterCount = (arbitraryString) => {
   const letterObj = getLetterObject(arbitraryString);
   let maxAppearance = {};
   for (const key in letterObj) {
     if (Object.keys(maxAppearance).length === 0) {
-      maxAppearance[key] = letterObj[key]
+      maxAppearance[key] = letterObj[key];
     } else {
       for (const maxAppearedKey in maxAppearance) {
         if (maxAppearance[maxAppearedKey] < letterObj[key]) {
           maxAppearance = {};
-          maxAppearance[key] = letterObj[key]
+          maxAppearance[key] = letterObj[key];
         }
       }
     }
   }
   return maxAppearance;
-}
-
+};
 
 const getFirstUniqueCharacter = (str) => {
   const letterObj = getLetterObject(str);
-  console.log('getFIRST=>', letterObj)
-  for (let i = 0; i < str.length; i++){
-    if(letterObj[str[i]] === 1){
+  console.log('getFIRST=>', letterObj);
+  for (let i = 0; i < str.length; i++) {
+    if (letterObj[str[i]] === 1) {
       return str[i];
     }
   }
   return null;
-}
+};
 
+const getFirstUniqueCharViaMap = (str) => {
+  if (
+    typeof str === 'number' ||
+    typeof str === 'function' ||
+    typeof str === 'undefined' ||
+    typeof str === 'boolean'
+  )
+    return -1;
+  const map = new Map();
+  str
+    .split('')
+    .forEach((el) =>
+      map.get(el) ? map.set(el, map.get(el) + 1) : map.set(el, 1)
+    );
+
+  for ([key, value] of map) {
+    if (value === 1) return key;
+  }
+  return -1;
+};
 
 module.exports = {
   getDupesAsStringFactory,
   getMaxLetterCount,
-  getFirstUniqueCharacter
+  getFirstUniqueCharacter,
+  getFirstUniqueCharViaMap,
 };
