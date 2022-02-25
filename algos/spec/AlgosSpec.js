@@ -36,9 +36,16 @@ describe('GEt first non repeating character from string by using object of lette
 
 describe('GEt first non repeating character from string by using object of letters against the origin string', () => {
   it('should return first non repeating character from string', () => {
-    const doubleNumber = getDoubleNumber([3,6,9]);
+    const doubleNumber = getDoubleNumber([3,6,6]);
     expect(doubleNumber).toEqual(true);
   })
 })
 
+
+describe('GEt first non repeating character from string by using object of letters against the origin string', () => {
+  it('should return first non repeating character from string', () => {
+    const doubleNumber = getDoubleNumber([3,6,6]);
+    expect(doubleNumber).toEqual(true);
+  })
+})
 

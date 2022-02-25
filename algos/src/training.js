@@ -73,16 +73,15 @@ const getDupesAsStringFactory = (approach) => {
   };
 };
 
-
 const getLetterObject = (arbitraryString) => {
   return arbitraryString.split('').reduce((acc, el) => {
-    if (acc[el]) {
-      return { ...acc, [el]: acc[el] + 1 }
+    if (el in acc) {
+      return { ...acc, [el]: acc[el] + 1 };
     } else {
-      return { ...acc, [el]: 1 }
+      return { ...acc, [el]: 1 };
     }
   }, {});
-}
+};
 
 const getLttersInMap = (arbitraryString) => {
   const map = new Map();
@@ -93,19 +92,18 @@ const getMaxLetterCount = (arbitraryString) => {
   let maxAppearance = {};
   for (const key in letterObj) {
     if (Object.keys(maxAppearance).length === 0) {
-      maxAppearance[key] = letterObj[key]
+      maxAppearance[key] = letterObj[key];
     } else {
       for (const maxAppearedKey in maxAppearance) {
         if (maxAppearance[maxAppearedKey] < letterObj[key]) {
           maxAppearance = {};
-          maxAppearance[key] = letterObj[key]
+          maxAppearance[key] = letterObj[key];
         }
       }
     }
   }
   return maxAppearance;
-}
-
+};
 
 const getFirstUniqueCharacter = (str) => {
   const letterObj = getLetterObject(str);
@@ -115,17 +113,37 @@ const getFirstUniqueCharacter = (str) => {
     }
   }
   return null;
-}
+};
+
+const getFirstUniqueCharViaMap = (str) => {
+  if (
+    typeof str === 'number' ||
+    typeof str === 'function' ||
+    typeof str === 'undefined' ||
+    typeof str === 'boolean'
+  )
+    return -1;
+  const map = new Map();
+  str
+    .split('')
+    .forEach((el) =>
+      map.get(el) ? map.set(el, map.get(el) + 1) : map.set(el, 1)
+    );
+  for ([key, value] of map) {
+    if (value === 1) return key;
+  }
+  return -1;
+};
 
 const getDoubleNumber = (arr) => {
-  const obj = {};
+  let obj = {};
   for (let i = 0; i < arr.length; i++) {
-    obj[arr[i]] = 1;
-    const divider = arr[i] / 2;
-    if (obj[divider]) {
-      return true;
-    }
-  }
+      obj[arr[i]] = 1;
+        const divider = arr[i] / 2;
+        if(obj[divider]) {
+          return true;
+        }
+      }
   return false;
 }
 
@@ -133,5 +151,7 @@ module.exports = {
   getDupesAsStringFactory,
   getMaxLetterCount,
   getFirstUniqueCharacter,
-  getDoubleNumber
+  getDoubleNumber,
+  getFirstUniqueCharViaMap,
+
 };
