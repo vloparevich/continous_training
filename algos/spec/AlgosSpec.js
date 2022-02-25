@@ -1,4 +1,4 @@
-const { getDupesAsStringFactory, getMaxLetterCount, getFirstUniqueCharacter } = require('../src/training');
+const { getDupesAsStringFactory, getMaxLetterCount, getFirstUniqueCharacter, getDoubleNumber } = require('../src/training');
 
 describe('Getting dupes from string input by using function factory', () => {
   it('should return string of unique dupes via set approach stored in the closure', () => {
@@ -33,3 +33,12 @@ describe('GEt first non repeating character from string by using object of lette
     expect(firstNonRepeatingChar).toEqual("b");
   })
 })
+
+describe('GEt first non repeating character from string by using object of letters against the origin string', () => {
+  it('should return first non repeating character from string', () => {
+    const doubleNumber = getDoubleNumber([3,6,9]);
+    expect(doubleNumber).toEqual(true);
+  })
+})
+
+

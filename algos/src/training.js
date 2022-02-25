@@ -76,12 +76,16 @@ const getDupesAsStringFactory = (approach) => {
 
 const getLetterObject = (arbitraryString) => {
   return arbitraryString.split('').reduce((acc, el) => {
-    if (el in acc) {
+    if (acc[el]) {
       return { ...acc, [el]: acc[el] + 1 }
     } else {
       return { ...acc, [el]: 1 }
     }
   }, {});
+}
+
+const getLttersInMap = (arbitraryString) => {
+  const map = new Map();
 }
 
 const getMaxLetterCount = (arbitraryString) => {
@@ -105,18 +109,29 @@ const getMaxLetterCount = (arbitraryString) => {
 
 const getFirstUniqueCharacter = (str) => {
   const letterObj = getLetterObject(str);
-  console.log('getFIRST=>', letterObj)
-  for (let i = 0; i < str.length; i++){
-    if(letterObj[str[i]] === 1){
+  for (let i = 0; i < str.length; i++) {
+    if (letterObj[str[i]] === 1) {
       return str[i];
     }
   }
   return null;
 }
 
+const getDoubleNumber = (arr) => {
+  const obj = {};
+  for (let i = 0; i < arr.length; i++) {
+    obj[arr[i]] = 1;
+    const divider = arr[i] / 2;
+    if (obj[divider]) {
+      return true;
+    }
+  }
+  return false;
+}
 
 module.exports = {
   getDupesAsStringFactory,
   getMaxLetterCount,
-  getFirstUniqueCharacter
+  getFirstUniqueCharacter,
+  getDoubleNumber
 };
