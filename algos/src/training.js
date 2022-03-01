@@ -150,20 +150,54 @@ const getDoubleNumber = (arr) => {
 const arrOfIndexesOfTwoSum = (nums, target) => {
   const result = [];
   let first = nums[0];
-  
-  for(let i = 1; i < nums.length; i++){
-      for(let j = i; j < nums.length; j++){
-          const tempResult = first + nums[j];
-          if(tempResult === target){
-          result.push(nums.indexOf(first));
-          result.push(j);
-          break
-          }
+
+  for (let i = 1; i < nums.length; i++) {
+    for (let j = i; j < nums.length; j++) {
+      const tempResult = first + nums[j];
+      if (tempResult === target) {
+        result.push(nums.indexOf(first));
+        result.push(j);
+        break
       }
-      first = nums[i]; 
+    }
+    first = nums[i];
   }
   return result;
 };
+
+const arrOfIndexesOfTwoSumSecondApproach = (nums, target) => {
+  const memo = {};
+  const result = [];
+  for (let i = 0; i < nums.length; i++) {
+    const missingNum = target - nums[i];
+
+    if (missingNum in memo) {
+      result.push(i);
+      result.push(memo[missingNum]);
+      break;
+    }
+    memo[nums[i]] = i;
+  }
+  return result;
+}
+
+const lengthOfLongestSubstring = (s) => {
+  let map = {}
+    let start = 0
+    let maxLen = 0
+    let arr = s.split('')
+    for (i=0; i < s.length; i++) {
+        let current = map[arr[i]]
+        if (current!=null && start <= current) {
+            start = current + 1
+        } else {
+            maxLen = Math.max(maxLen, i - start + 1)
+        }
+        map[arr[i]] = i
+    }
+    return maxLen
+};
+
 
 module.exports = {
   getDupesAsStringFactory,
@@ -171,5 +205,7 @@ module.exports = {
   getFirstUniqueCharacter,
   getDoubleNumber,
   getFirstUniqueCharViaMap,
-  arrOfIndexesOfTwoSum
+  arrOfIndexesOfTwoSum,
+  arrOfIndexesOfTwoSumSecondApproach,
+  lengthOfLongestSubstring
 };

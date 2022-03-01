@@ -1,4 +1,4 @@
-const { getDupesAsStringFactory, getMaxLetterCount, getFirstUniqueCharacter, getDoubleNumber, arrOfIndexesOfTwoSum } = require('../src/training');
+const { getDupesAsStringFactory, getMaxLetterCount, getFirstUniqueCharacter, getDoubleNumber, arrOfIndexesOfTwoSum, arrOfIndexesOfTwoSumSecondApproach } = require('../src/training');
 
 describe('Getting dupes from string input by using function factory', () => {
   it('should return string of unique dupes via set approach stored in the closure', () => {
@@ -62,4 +62,19 @@ describe('Return array of indexes of numbers which are giving target after an ad
     expect(arrOfIndexPositions).toEqual([0,1]);
   })
 })
+
+describe('Return array of indexes of numbers which are giving target after an addition', () => {
+  it('should return 2 index positions of numbers which makes a target after sum. Order of elements doe snot matter O(n)', () => {
+    const arrOfIndexPositions = arrOfIndexesOfTwoSumSecondApproach([3,3], 6);
+    expect(arrOfIndexPositions).toEqual([1,0]);
+  })
+})
+
+describe('Return array of indexes of numbers which are giving target after an addition', () => {
+  it('should return 2 index positions of numbers which makes a target after sum. Order of elements doe snot matter O(n)', () => {
+    const arrOfIndexPositions = arrOfIndexesOfTwoSumSecondApproach([2,7,11,15], 9);
+    expect(arrOfIndexPositions).toEqual([1,0]);
+  })
+})
+
 
