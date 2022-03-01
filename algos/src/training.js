@@ -138,14 +138,32 @@ const getFirstUniqueCharViaMap = (str) => {
 const getDoubleNumber = (arr) => {
   let obj = {};
   for (let i = 0; i < arr.length; i++) {
-      obj[arr[i]] = 1;
-        const divider = arr[i] / 2;
-        if(obj[divider]) {
-          return true;
-        }
-      }
+    obj[arr[i]] = 1;
+    const divider = arr[i] / 2;
+    if (obj[divider]) {
+      return true;
+    }
+  }
   return false;
 }
+
+const arrOfIndexesOfTwoSum = (nums, target) => {
+  const result = [];
+  let first = nums[0];
+  
+  for(let i = 1; i < nums.length; i++){
+      for(let j = i; j < nums.length; j++){
+          const tempResult = first + nums[j];
+          if(tempResult === target){
+          result.push(nums.indexOf(first));
+          result.push(j);
+          break
+          }
+      }
+      first = nums[i]; 
+  }
+  return result;
+};
 
 module.exports = {
   getDupesAsStringFactory,
@@ -153,5 +171,5 @@ module.exports = {
   getFirstUniqueCharacter,
   getDoubleNumber,
   getFirstUniqueCharViaMap,
-
+  arrOfIndexesOfTwoSum
 };
