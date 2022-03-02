@@ -183,19 +183,42 @@ const arrOfIndexesOfTwoSumSecondApproach = (nums, target) => {
 
 const lengthOfLongestSubstring = (s) => {
   let map = {}
-    let start = 0
-    let maxLen = 0
-    let arr = s.split('')
-    for (i=0; i < s.length; i++) {
-        let current = map[arr[i]]
-        if (current!=null && start <= current) {
-            start = current + 1
-        } else {
-            maxLen = Math.max(maxLen, i - start + 1)
-        }
-        map[arr[i]] = i
+  let start = 0
+  let maxLen = 0
+  let arr = s.split('')
+  for (i = 0; i < s.length; i++) {
+    let current = map[arr[i]]
+    if (current != null && start <= current) {
+      start = current + 1
+    } else {
+      maxLen = Math.max(maxLen, i - start + 1)
     }
-    return maxLen
+    map[arr[i]] = i
+  }
+  return maxLen
+};
+
+const isPalindrome = (x) => {
+  const arr = ('' + x).split('');
+  for (let i = 0; i < arr.length / 2; i++) {
+    if (arr[i] !== arr[arr.length - i - 1]) return false;
+  }
+  return true;
+};
+
+const isPalindromeSinglyLinkedList  = (head) => {
+  const arr = [];
+  while(head !== null){
+      arr.push(head.val);
+      head = head.next;
+  }
+  const length = arr.length
+  for(let i = 0; i < length / 2; i++){
+      if(arr[i] !== arr[length - 1- i]) {
+          return false;
+      }
+  }
+  return true
 };
 
 
@@ -207,5 +230,6 @@ module.exports = {
   getFirstUniqueCharViaMap,
   arrOfIndexesOfTwoSum,
   arrOfIndexesOfTwoSumSecondApproach,
-  lengthOfLongestSubstring
+  lengthOfLongestSubstring,
+  isPalindromeSinglyLinkedList
 };

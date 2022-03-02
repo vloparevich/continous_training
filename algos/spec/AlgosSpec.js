@@ -1,4 +1,4 @@
-const { getDupesAsStringFactory, getMaxLetterCount, getFirstUniqueCharacter, getDoubleNumber, arrOfIndexesOfTwoSum, arrOfIndexesOfTwoSumSecondApproach } = require('../src/training');
+const { getDupesAsStringFactory, getMaxLetterCount, getFirstUniqueCharacter, getDoubleNumber, arrOfIndexesOfTwoSum, arrOfIndexesOfTwoSumSecondApproach, isPalindromeSinglyLinkedList } = require('../src/training');
 
 describe('Getting dupes from string input by using function factory', () => {
   it('should return string of unique dupes via set approach stored in the closure', () => {
@@ -36,7 +36,7 @@ describe('GEt first non repeating character from string by using object of lette
 
 describe('GEt first non repeating character from string by using object of letters against the origin string', () => {
   it('should return first non repeating character from string', () => {
-    const doubleNumber = getDoubleNumber([3,6,6]);
+    const doubleNumber = getDoubleNumber([3, 6, 6]);
     expect(doubleNumber).toEqual(true);
   })
 })
@@ -44,37 +44,55 @@ describe('GEt first non repeating character from string by using object of lette
 
 describe('GEt first non repeating character from string by using object of letters against the origin string', () => {
   it('should return first non repeating character from string', () => {
-    const doubleNumber = getDoubleNumber([3,6,6]);
+    const doubleNumber = getDoubleNumber([3, 6, 6]);
     expect(doubleNumber).toEqual(true);
   })
 })
 
 describe('Return array of indexes of numbers which are giving target after an addition', () => {
   it('should return 2 index positions of numbers which makes a target after sum', () => {
-    const arrOfIndexPositions = arrOfIndexesOfTwoSum([2,7,11,15], 9);
-    expect(arrOfIndexPositions).toEqual([0,1]);
+    const arrOfIndexPositions = arrOfIndexesOfTwoSum([2, 7, 11, 15], 9);
+    expect(arrOfIndexPositions).toEqual([0, 1]);
   })
 })
 
 describe('Return array of indexes of numbers which are giving target after an addition', () => {
   it('should return 2 index positions of numbers which makes a target after sum', () => {
-    const arrOfIndexPositions = arrOfIndexesOfTwoSum([3,3], 6);
-    expect(arrOfIndexPositions).toEqual([0,1]);
+    const arrOfIndexPositions = arrOfIndexesOfTwoSum([3, 3], 6);
+    expect(arrOfIndexPositions).toEqual([0, 1]);
   })
 })
 
 describe('Return array of indexes of numbers which are giving target after an addition', () => {
   it('should return 2 index positions of numbers which makes a target after sum. Order of elements doe snot matter O(n)', () => {
-    const arrOfIndexPositions = arrOfIndexesOfTwoSumSecondApproach([3,3], 6);
-    expect(arrOfIndexPositions).toEqual([1,0]);
+    const arrOfIndexPositions = arrOfIndexesOfTwoSumSecondApproach([3, 3], 6);
+    expect(arrOfIndexPositions).toEqual([1, 0]);
   })
 })
 
 describe('Return array of indexes of numbers which are giving target after an addition', () => {
   it('should return 2 index positions of numbers which makes a target after sum. Order of elements doe snot matter O(n)', () => {
-    const arrOfIndexPositions = arrOfIndexesOfTwoSumSecondApproach([2,7,11,15], 9);
-    expect(arrOfIndexPositions).toEqual([1,0]);
+    const arrOfIndexPositions = arrOfIndexesOfTwoSumSecondApproach([2, 7, 11, 15], 9);
+    expect(arrOfIndexPositions).toEqual([1, 0]);
   })
 })
 
-
+describe('Veriy if singly linked list is a palindrome', () => {
+  it('should return true or false if singly linkedlist is a palindrome. Space complexity O(n), time complexity O(n)', () => {
+    const head = {
+      val: 1,
+      next: {
+        val: 2,
+        next: {
+          val: 2,
+          next: {
+            val: 1,
+            next: null
+          }
+        }
+      }
+    }
+    const isLinkedListPalindrome = isPalindromeSinglyLinkedList(head);
+    expect(isLinkedListPalindrome).toEqual(true);
+  })
+})
