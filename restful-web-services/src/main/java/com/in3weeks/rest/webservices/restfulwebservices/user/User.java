@@ -1,4 +1,4 @@
-package com.in3weeks.rest.webservices.restfulwebservices;
+package com.in3weeks.rest.webservices.restfulwebservices.user;
 
 import java.util.Date;
 
