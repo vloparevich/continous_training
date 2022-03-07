@@ -1,4 +1,4 @@
-const { getDupesAsStringFactory, getMaxLetterCount, getFirstUniqueCharacter, getDoubleNumber, arrOfIndexesOfTwoSum, arrOfIndexesOfTwoSumSecondApproach, isPalindromeSinglyLinkedList } = require('../src/training');
+const { getDupesAsStringFactory, getMaxLetterCount,maximumUnits, getFirstUniqueCharacter, getDoubleNumber, arrOfIndexesOfTwoSum, arrOfIndexesOfTwoSumSecondApproach, isPalindromeSinglyLinkedList } = require('../src/training');
 
 describe('Getting dupes from string input by using function factory', () => {
   it('should return string of unique dupes via set approach stored in the closure', () => {
@@ -94,5 +94,14 @@ describe('Veriy if singly linked list is a palindrome', () => {
     }
     const isLinkedListPalindrome = isPalindromeSinglyLinkedList(head);
     expect(isLinkedListPalindrome).toEqual(true);
+  })
+})
+
+maximumUnits
+
+describe('Return maximum possible units to be loaded on truck', () => {
+  it('should return a sum of maximum possible units to be loaded', () => {
+    const maxUnitsOnTruck = maximumUnits([[5,10],[2,5],[4,7],[3,9]], 10);
+    expect(maxUnitsOnTruck).toEqual(91);
   })
 })

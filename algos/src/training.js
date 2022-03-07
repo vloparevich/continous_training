@@ -206,19 +206,36 @@ const isPalindrome = (x) => {
   return true;
 };
 
-const isPalindromeSinglyLinkedList  = (head) => {
+const isPalindromeSinglyLinkedList = (head) => {
   const arr = [];
-  while(head !== null){
-      arr.push(head.val);
-      head = head.next;
+  while (head !== null) {
+    arr.push(head.val);
+    head = head.next;
   }
   const length = arr.length
-  for(let i = 0; i < length / 2; i++){
-      if(arr[i] !== arr[length - 1- i]) {
-          return false;
-      }
+  for (let i = 0; i < length / 2; i++) {
+    if (arr[i] !== arr[length - 1 - i]) {
+      return false;
+    }
   }
   return true
+};
+
+const maximumUnits = (boxTypes, truckSize) => {
+  const sortedLoads = [...boxTypes].sort((a, b) => b[1] - a[1])
+  let result = 0;
+  let capacity = truckSize;
+
+  for (let i = 0; i < boxTypes.length; i++) {
+    if (sortedLoads[i][0] <= capacity) {
+      result += sortedLoads[i][0] * sortedLoads[i][1]
+    } else {
+      result += capacity * sortedLoads[i][1]
+      return result;
+    }
+    capacity -= sortedLoads[i][0];
+  }
+  return result;
 };
 
 
@@ -231,5 +248,6 @@ module.exports = {
   arrOfIndexesOfTwoSum,
   arrOfIndexesOfTwoSumSecondApproach,
   lengthOfLongestSubstring,
-  isPalindromeSinglyLinkedList
+  isPalindromeSinglyLinkedList,
+  maximumUnits
 };
