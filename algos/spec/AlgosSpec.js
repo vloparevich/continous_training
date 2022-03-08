@@ -1,4 +1,4 @@
-const { getDupesAsStringFactory, getMaxLetterCount,maximumUnits, getFirstUniqueCharacter, getDoubleNumber, arrOfIndexesOfTwoSum, arrOfIndexesOfTwoSumSecondApproach, isPalindromeSinglyLinkedList } = require('../src/training');
+const { mergeTwoArraysAtPlace, getDupesAsStringFactory, getMaxLetterCount, maximumUnits, getFirstUniqueCharacter, getDoubleNumber, arrOfIndexesOfTwoSum, arrOfIndexesOfTwoSumSecondApproach, isPalindromeSinglyLinkedList } = require('../src/training');
 
 describe('Getting dupes from string input by using function factory', () => {
   it('should return string of unique dupes via set approach stored in the closure', () => {
@@ -101,7 +101,16 @@ maximumUnits
 
 describe('Return maximum possible units to be loaded on truck', () => {
   it('should return a sum of maximum possible units to be loaded', () => {
-    const maxUnitsOnTruck = maximumUnits([[5,10],[2,5],[4,7],[3,9]], 10);
+    const maxUnitsOnTruck = maximumUnits([[5, 10], [2, 5], [4, 7], [3, 9]], 10);
     expect(maxUnitsOnTruck).toEqual(91);
+  })
+})
+
+describe('Merge nums1 and nums2 into a single array sorted in non-decreasing order.', () => {
+  it('should mutate the first array by mergin second where start index posiiton is specified for the first arr and num of elements for the second is also specified', () => {
+    const arr1 = [1, 2, 3, 0, 0, 0];
+    const arr2 = [2, 5, 6];
+    mergeTwoArraysAtPlace(arr1, 3, arr2, 3);
+    expect(arr1).toEqual([1,2,2,3,5,6]);
   })
 })

@@ -238,6 +238,24 @@ const maximumUnits = (boxTypes, truckSize) => {
   return result;
 };
 
+const buildArrayByPermutingInput = (nums) => {
+  const result = [];
+  for(let i = 0; i < nums.length; i++) {
+      result.push(nums[nums[i]]);
+  }
+  return result;
+};
+
+const sortedSquares = (nums) => {
+  return nums.map(el=> el*= el).sort((a, b)=>a-b);
+};
+
+const mergeTwoArraysAtPlace = (nums1, m, nums2, n) => {
+  for(let i = 0; i < n; i++){
+      nums1[i+m]=nums2[i];
+  }
+  nums1.sort((a,b)=>a-b);
+};
 
 module.exports = {
   getDupesAsStringFactory,
@@ -249,5 +267,6 @@ module.exports = {
   arrOfIndexesOfTwoSumSecondApproach,
   lengthOfLongestSubstring,
   isPalindromeSinglyLinkedList,
-  maximumUnits
+  maximumUnits,
+  mergeTwoArraysAtPlace
 };
