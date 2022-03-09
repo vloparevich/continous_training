@@ -257,6 +257,39 @@ const mergeTwoArraysAtPlace = (nums1, m, nums2, n) => {
   nums1.sort((a,b)=>a-b);
 };
 
+
+const romanToInt = (s) => {
+  const roman = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  }
+
+  let result = 0;
+  let strArr = s.split('');
+  let i = 0;
+  while (i < strArr.length) {
+    const curr = roman[strArr[i]];
+    const next = roman[strArr[i + 1]]
+    if (curr >= next) {
+      result += curr;
+    } else if (curr < next) {
+      result += (next - curr);
+      i += 2;
+      continue;
+    } else {
+      result += curr;
+    }
+    i++;
+  }
+  return result;
+};
+
+
 module.exports = {
   getDupesAsStringFactory,
   getMaxLetterCount,
@@ -268,5 +301,6 @@ module.exports = {
   lengthOfLongestSubstring,
   isPalindromeSinglyLinkedList,
   maximumUnits,
-  mergeTwoArraysAtPlace
+  mergeTwoArraysAtPlace,
+  romanToInt,
 };

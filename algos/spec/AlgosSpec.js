@@ -1,4 +1,4 @@
-const { mergeTwoArraysAtPlace, getDupesAsStringFactory, getMaxLetterCount, maximumUnits, getFirstUniqueCharacter, getDoubleNumber, arrOfIndexesOfTwoSum, arrOfIndexesOfTwoSumSecondApproach, isPalindromeSinglyLinkedList } = require('../src/training');
+const { romanToInt, mergeTwoArraysAtPlace, getDupesAsStringFactory, getMaxLetterCount, maximumUnits, getFirstUniqueCharacter, getDoubleNumber, arrOfIndexesOfTwoSum, arrOfIndexesOfTwoSumSecondApproach, isPalindromeSinglyLinkedList } = require('../src/training');
 
 describe('Getting dupes from string input by using function factory', () => {
   it('should return string of unique dupes via set approach stored in the closure', () => {
@@ -111,6 +111,24 @@ describe('Merge nums1 and nums2 into a single array sorted in non-decreasing ord
     const arr1 = [1, 2, 3, 0, 0, 0];
     const arr2 = [2, 5, 6];
     mergeTwoArraysAtPlace(arr1, 3, arr2, 3);
-    expect(arr1).toEqual([1,2,2,3,5,6]);
+    expect(arr1).toEqual([1, 2, 2, 3, 5, 6]);
   })
 })
+
+describe('Convert rome numbers into integer', () => {
+  it('should convert rome number intro integer by considering the rome\'"s rules', () => {
+    const romeNumber = "MDCXCV";
+    const result = romanToInt(romeNumber);
+    expect(result).toEqual(1695);
+  })
+})
+
+describe('Convert rome numbers into integer', () => {
+  it('should convert long rome number intro integer by considering the rome\'"s rules', () => {
+    const romeNumber = "MMDCXXIX";
+    const result = romanToInt(romeNumber);
+    expect(result).toEqual(2629);
+  })
+});
+
+
