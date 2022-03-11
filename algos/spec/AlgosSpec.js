@@ -1,4 +1,4 @@
-const { romanToInt, mergeTwoArraysAtPlace, getDupesAsStringFactory, getMaxLetterCount, maximumUnits, getFirstUniqueCharacter, getDoubleNumber, arrOfIndexesOfTwoSum, arrOfIndexesOfTwoSumSecondApproach, isPalindromeSinglyLinkedList } = require('../src/training');
+const { numIdenticalPairs, romanToInt, mergeTwoArraysAtPlace, getDupesAsStringFactory, getMaxLetterCount, maximumUnits, getFirstUniqueCharacter, getDoubleNumber, arrOfIndexesOfTwoSum, arrOfIndexesOfTwoSumSecondApproach, isPalindromeSinglyLinkedList } = require('../src/training');
 
 describe('Getting dupes from string input by using function factory', () => {
   it('should return string of unique dupes via set approach stored in the closure', () => {
@@ -128,6 +128,13 @@ describe('Convert rome numbers into integer', () => {
     const romeNumber = "MMDCXXIX";
     const result = romanToInt(romeNumber);
     expect(result).toEqual(2629);
+  })
+});
+
+describe('Return a number of identical pairs', () => {
+  it('should return a number of identiacal ongoing pairs', () => {
+    const result = numIdenticalPairs([1,2,3,1,1,3]);
+    expect(result).toEqual(4);
   })
 });
 

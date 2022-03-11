@@ -240,21 +240,21 @@ const maximumUnits = (boxTypes, truckSize) => {
 
 const buildArrayByPermutingInput = (nums) => {
   const result = [];
-  for(let i = 0; i < nums.length; i++) {
-      result.push(nums[nums[i]]);
+  for (let i = 0; i < nums.length; i++) {
+    result.push(nums[nums[i]]);
   }
   return result;
 };
 
 const sortedSquares = (nums) => {
-  return nums.map(el=> el*= el).sort((a, b)=>a-b);
+  return nums.map(el => el *= el).sort((a, b) => a - b);
 };
 
 const mergeTwoArraysAtPlace = (nums1, m, nums2, n) => {
-  for(let i = 0; i < n; i++){
-      nums1[i+m]=nums2[i];
+  for (let i = 0; i < n; i++) {
+    nums1[i + m] = nums2[i];
   }
-  nums1.sort((a,b)=>a-b);
+  nums1.sort((a, b) => a - b);
 };
 
 
@@ -289,6 +289,18 @@ const romanToInt = (s) => {
   return result;
 };
 
+const numIdenticalPairs = function (nums) {
+  let result = 0;
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] === nums[j]) {
+        result++;
+      }
+    }
+  }
+  return result;
+}
+
 
 module.exports = {
   getDupesAsStringFactory,
@@ -303,4 +315,5 @@ module.exports = {
   maximumUnits,
   mergeTwoArraysAtPlace,
   romanToInt,
+  numIdenticalPairs
 };
