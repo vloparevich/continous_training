@@ -85,7 +85,7 @@ const getLetterObject = (arbitraryString) => {
 
 const getLttersInMap = (arbitraryString) => {
   const map = new Map();
-}
+};
 
 const getMaxLetterCount = (arbitraryString) => {
   const letterObj = getLetterObject(arbitraryString);
@@ -145,7 +145,7 @@ const getDoubleNumber = (arr) => {
     }
   }
   return false;
-}
+};
 
 const arrOfIndexesOfTwoSum = (nums, target) => {
   const result = [];
@@ -157,7 +157,7 @@ const arrOfIndexesOfTwoSum = (nums, target) => {
       if (tempResult === target) {
         result.push(nums.indexOf(first));
         result.push(j);
-        break
+        break;
       }
     }
     first = nums[i];
@@ -179,23 +179,23 @@ const arrOfIndexesOfTwoSumSecondApproach = (nums, target) => {
     memo[nums[i]] = i;
   }
   return result;
-}
+};
 
 const lengthOfLongestSubstring = (s) => {
-  let map = {}
-  let start = 0
-  let maxLen = 0
-  let arr = s.split('')
+  let map = {};
+  let start = 0;
+  let maxLen = 0;
+  let arr = s.split('');
   for (i = 0; i < s.length; i++) {
-    let current = map[arr[i]]
+    let current = map[arr[i]];
     if (current != null && start <= current) {
-      start = current + 1
+      start = current + 1;
     } else {
-      maxLen = Math.max(maxLen, i - start + 1)
+      maxLen = Math.max(maxLen, i - start + 1);
     }
-    map[arr[i]] = i
+    map[arr[i]] = i;
   }
-  return maxLen
+  return maxLen;
 };
 
 const isPalindrome = (x) => {
@@ -212,25 +212,40 @@ const isPalindromeSinglyLinkedList = (head) => {
     arr.push(head.val);
     head = head.next;
   }
-  const length = arr.length
+
+  const length = arr.length;
   for (let i = 0; i < length / 2; i++) {
     if (arr[i] !== arr[length - 1 - i]) {
       return false;
     }
   }
-  return true
+  return true;
+};
+
+const head = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 2,
+      next: {
+        value: 1,
+        next: null,
+      },
+    },
+  },
 };
 
 const maximumUnits = (boxTypes, truckSize) => {
-  const sortedLoads = [...boxTypes].sort((a, b) => b[1] - a[1])
+  const sortedLoads = [...boxTypes].sort((a, b) => b[1] - a[1]);
   let result = 0;
   let capacity = truckSize;
 
   for (let i = 0; i < boxTypes.length; i++) {
     if (sortedLoads[i][0] <= capacity) {
-      result += sortedLoads[i][0] * sortedLoads[i][1]
+      result += sortedLoads[i][0] * sortedLoads[i][1];
     } else {
-      result += capacity * sortedLoads[i][1]
+      result += capacity * sortedLoads[i][1];
       return result;
     }
     capacity -= sortedLoads[i][0];
@@ -247,7 +262,7 @@ const buildArrayByPermutingInput = (nums) => {
 };
 
 const sortedSquares = (nums) => {
-  return nums.map(el => el *= el).sort((a, b) => a - b);
+  return nums.map((el) => (el *= el)).sort((a, b) => a - b);
 };
 
 const mergeTwoArraysAtPlace = (nums1, m, nums2, n) => {
@@ -256,7 +271,6 @@ const mergeTwoArraysAtPlace = (nums1, m, nums2, n) => {
   }
   nums1.sort((a, b) => a - b);
 };
-
 
 const romanToInt = (s) => {
   const roman = {
@@ -267,18 +281,18 @@ const romanToInt = (s) => {
     C: 100,
     D: 500,
     M: 1000,
-  }
+  };
 
   let result = 0;
   let strArr = s.split('');
   let i = 0;
   while (i < strArr.length) {
     const curr = roman[strArr[i]];
-    const next = roman[strArr[i + 1]]
+    const next = roman[strArr[i + 1]];
     if (curr >= next) {
       result += curr;
     } else if (curr < next) {
-      result += (next - curr);
+      result += next - curr;
       i += 2;
       continue;
     } else {
@@ -299,8 +313,43 @@ const numIdenticalPairs = function (nums) {
     }
   }
   return result;
-}
+};
 
+const reverseLinkedList = (head) => {
+  if (head == null || head.next == null) {
+    return head;
+  }
+
+  let current = head;
+  let previous = null;
+  let nextTemp = null;
+  while (head) {
+    nextTemp = current.next;
+    current.next = previous;
+    previous = current;
+    current = nextTemp;
+  }
+  return previous;
+};
+
+const isBalancedExpression = (s) => {
+  const arr = s.split('');
+  const temp = [];
+  for (const curr of arr) {
+    if (curr === '{') temp.push('{');
+    if (curr === '[') temp.push('[');
+    if (curr === '(') temp.push('(');
+    if (
+      (curr === ')' && temp.pop() !== '(') ||
+      (curr === ']' && temp.pop() !== '[') ||
+      (curr === '}' && temp.pop() !== '{')
+    ) {
+      return false;
+    }
+  }
+  if (arr.length === 1 || temp.length !== 0) return false;
+  return true;
+};
 
 module.exports = {
   getDupesAsStringFactory,
@@ -315,5 +364,6 @@ module.exports = {
   maximumUnits,
   mergeTwoArraysAtPlace,
   romanToInt,
-  numIdenticalPairs
+  numIdenticalPairs,
+  isBalancedExpression,
 };
