@@ -11,6 +11,7 @@ const {
   arrOfIndexesOfTwoSum,
   arrOfIndexesOfTwoSumSecondApproach,
   isPalindromeSinglyLinkedList,
+  missingNumber,
 } = require('../src/training');
 
 describe('Getting dupes from string input by using function factory', () => {
@@ -168,5 +169,16 @@ describe('Evaluate if bracket expression is balanced.', () => {
 
     const result2 = isBalancedExpression('(]');
     expect(result2).toEqual(false);
+  });
+});
+
+describe('Find missing number in the range of [0...n]', () => {
+  it('should return missing number', () => {
+    const result = missingNumber([3, 0, 1]);
+    const result2 = missingNumber([0, 1]);
+    const result3 = missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]);
+    expect(result).toEqual(2);
+    expect(result2).toEqual(2);
+    expect(result3).toEqual(8);
   });
 });

@@ -351,6 +351,16 @@ const isBalancedExpression = (s) => {
   return true;
 };
 
+const missingNumber = (nums) => {
+  nums.sort((a, b) => a - b);
+  for (let i = 0; i < nums.length; i++) {
+    if (i !== nums[i]) {
+      return i;
+    }
+  }
+  return nums.length;
+};
+
 module.exports = {
   getDupesAsStringFactory,
   getMaxLetterCount,
@@ -366,4 +376,5 @@ module.exports = {
   romanToInt,
   numIdenticalPairs,
   isBalancedExpression,
+  missingNumber,
 };
