@@ -83,11 +83,30 @@ const getLetterObject = (arbitraryString) => {
   }, {});
 };
 
-const getLttersInMap = (arbitraryString) => {
-  const map = new Map();
+const getLetterMap = (arbitraryString) => {
+  return arbitraryString.split('').reduce((acc, el) => {
+    if (acc.has(el)) {
+      return acc.set(el, acc.get(el) + 1);
+    } else {
+      return acc.set(el, 1);
+    }
+  }, new Map());
 };
 
 const getMaxLetterCount = (arbitraryString) => {
+  const mapLettters = getLetterMap(arbitraryString);
+  let resultKey = '';
+  let maxValue = 0;
+  for (let [key, value] of mapLettters) {
+    if (maxValue < value) {
+      resultKey = key;
+      maxValue = value;
+    }
+  }
+  return { [resultKey]: maxValue };
+};
+
+const getMaxLetterCountLong = (arbitraryString) => {
   const letterObj = getLetterObject(arbitraryString);
   let maxAppearance = {};
   for (const key in letterObj) {
