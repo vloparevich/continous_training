@@ -155,13 +155,24 @@ const getFirstUniqueCharViaMap = (str) => {
 };
 
 const getDoubleNumber = (arr) => {
-  let obj = {};
-  for (let i = 0; i < arr.length; i++) {
-    obj[arr[i]] = 1;
-    const divider = arr[i] / 2;
-    if (obj[divider]) {
-      return true;
-    }
+  const record = new Set();
+  for (const num of arr) {
+    debugger;
+    const half = num / 2;
+    const double = num * 2;
+    if (record.has(half) || record.has(double)) return true;
+    record.add(num);
+  }
+  return false;
+};
+
+const similarGetDoubleNumber = () => {
+  const obj = {};
+  for (const num of arr) {
+    const half = num / 2;
+    const double = num * 2;
+    if (obj[half] || obj[double]) return true;
+    obj[num] = 1;
   }
   return false;
 };
