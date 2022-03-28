@@ -12,6 +12,7 @@ const {
   arrOfIndexesOfTwoSumSecondApproach,
   isPalindromeSinglyLinkedList,
   missingNumber,
+  maxSubArraySum,
 } = require('../src/training');
 
 describe('Getting dupes from string input by using function factory', () => {
@@ -180,5 +181,14 @@ describe('Find missing number in the range of [0...n]', () => {
     expect(result).toEqual(2);
     expect(result2).toEqual(2);
     expect(result3).toEqual(8);
+  });
+});
+
+describe('Find maximum sum of values in a sub array', () => {
+  it('should return a sum', () => {
+    const result = maxSubArraySum([-2, 1, -3, 4, -1, 2, 1, -5, 4]);
+    // const result3 = missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]);
+    expect(result).toEqual(6);
+    // expect(result2).toEqual(1288333);
   });
 });

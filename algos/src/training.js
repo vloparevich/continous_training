@@ -391,6 +391,28 @@ const missingNumber = (nums) => {
   return nums.length;
 };
 
+const maxSubArraySum = (arr = []) => {
+  if (!arr.length) {
+    return 0;
+  }
+  let maxSum = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    let interimSum = 0;
+    for (let j = i; j < arr.length; j++) {
+      interimSum += arr[j];
+      maxSum = Math.max(maxSum, interimSum);
+    }
+  }
+  return maxSum;
+};
+
+const maxSubArraySum2 = (nums = []) => {
+  for (let i = 1; i < nums.length; i++) {
+    nums[i] = Math.max(nums[i - 1] + nums[i], nums[i]);
+  }
+  return Math.max(...nums);
+};
+
 module.exports = {
   getDupesAsStringFactory,
   getMaxLetterCount,
@@ -407,4 +429,5 @@ module.exports = {
   numIdenticalPairs,
   isBalancedExpression,
   missingNumber,
+  maxSubArraySum,
 };
