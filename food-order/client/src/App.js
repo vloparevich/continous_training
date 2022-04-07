@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Layout/Header';
 import { getLoggedIn, logout } from './services/auth';
 import routes from './config/routes';
 import * as USER_HELPERS from './utils/userToken';
 import Meals from './components/Meals/Meals';
+import Cart from './components/Cart/Cart';
+import CartProvider from './store/CartProvider';
 
 export default function App() {
   const [user, setUser] = useState(null);
+  const [cartIsShown, setCartIsShown] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -46,9 +49,18 @@ export default function App() {
     setUser(user);
   }
 
+  const showCartHandler = () => {
+    setCartIsShown(true);
+  };
+
+  const hideCartHandler = () => {
+    setCartIsShown(false);
+  };
+
   return (
-    <React.Fragment>
-      <Header />
+    <CartProvider>
+      {cartIsShown && <Cart onClose={hideCartHandler} />}
+      <Header onShowCart={showCartHandler} />
       <main>
         <Meals />
       </main>
@@ -57,6 +69,6 @@ export default function App() {
           <Route key={route.path} path={route.path} element={route.element} />
         ))}
       </Routes>
-    </React.Fragment>
+    </CartProvider>
   );
 }
