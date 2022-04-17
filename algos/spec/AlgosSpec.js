@@ -13,6 +13,8 @@ const {
   isPalindromeSinglyLinkedList,
   missingNumber,
   maxSubArraySum,
+  removeAllTheElementOccurencies,
+  plusOne,
 } = require('../src/training');
 
 describe('Getting dupes from string input by using function factory', () => {
@@ -190,5 +192,59 @@ describe('Find maximum sum of values in a sub array', () => {
     // const result3 = missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]);
     expect(result).toEqual(6);
     // expect(result2).toEqual(1288333);
+  });
+});
+
+describe('Remove all the occurencies if the element in array. Original array should be changed, no copies are allowed', () => {
+  it('should return the length of the array modified in place', () => {
+    const result = removeAllTheElementOccurencies([4, 3, 2, 4, 2, 7], 2);
+    expect(result).toEqual(4);
+  });
+});
+
+describe('Increment the large integer by one and return the resulting array of digits.', () => {
+  it('should big integer incremented by 1', () => {
+    const result = plusOne([
+      6,
+      1,
+      4,
+      5,
+      3,
+      9,
+      0,
+      1,
+      9,
+      5,
+      1,
+      8,
+      6,
+      7,
+      0,
+      5,
+      5,
+      4,
+      3,
+    ]);
+    expect(result).toEqual([
+      6,
+      1,
+      4,
+      5,
+      3,
+      9,
+      0,
+      1,
+      9,
+      5,
+      1,
+      8,
+      6,
+      7,
+      0,
+      5,
+      5,
+      4,
+      4,
+    ]);
   });
 });

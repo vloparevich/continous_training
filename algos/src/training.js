@@ -413,7 +413,26 @@ const maxSubArraySum2 = (nums = []) => {
   return Math.max(...nums);
 };
 
+const removeAllTheElementOccurencies = function (nums, val) {
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === val) {
+      nums.splice(i, 1);
+      i--;
+    }
+  }
+  return nums.length;
+};
+
+const plusOne = function (digits) {
+  const number = BigInt([...digits].join(''));
+  const biggerNumber = number + 1n;
+  const stringNumberArr = biggerNumber.toString().split('');
+  const result = stringNumberArr.map(Number);
+  return result;
+};
+
 module.exports = {
+  removeAllTheElementOccurencies,
   getDupesAsStringFactory,
   getMaxLetterCount,
   getFirstUniqueCharacter,
@@ -430,4 +449,5 @@ module.exports = {
   isBalancedExpression,
   missingNumber,
   maxSubArraySum,
+  plusOne,
 };
