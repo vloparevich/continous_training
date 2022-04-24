@@ -1,5 +1,8 @@
 import useInput from '../hooks/use-input';
 
+const isNotEmpty = (value) => value.trim() !== '';
+const isEmail = (value) => value.includes('@');
+
 const SimpleInput = (props) => {
   const {
     value: enteredName,
@@ -8,9 +11,7 @@ const SimpleInput = (props) => {
     reset: resetName,
     valueChangeHandler: nameChangedHandler,
     inputBlurHandler: nameBlurHandler,
-  } = useInput((value) => {
-    return value.trim() !== '';
-  });
+  } = useInput(isNotEmpty);
 
   const {
     value: enteredEmail,
@@ -18,12 +19,7 @@ const SimpleInput = (props) => {
     reset: resetEmail,
     valueChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
-  } = useInput((value) => {
-    return value.indexOf('@') > 1;
-  });
-
-  console.log('loading has error', nameInputHasError);
-  console.log('loading has error', emailInputHasError);
+  } = useInput(isEmail);
 
   let formIsValid = false;
   if (enteredNameIsValid && !emailInputHasError) {
@@ -37,8 +33,6 @@ const SimpleInput = (props) => {
     }
     resetName();
     resetEmail();
-    console.log('name has error', nameInputHasError);
-    console.log('email has error', emailInputHasError);
   };
 
   const nameInputClasses = nameInputHasError
