@@ -30,7 +30,7 @@ const BasicForm = (props) => {
   } = useInput(isEmail);
 
   let isFormValid = false;
-  if (!nameInputHasError && !lastNameInputHasError && !emailInputHasError) {
+  if (enteredNameIsValid && enteredLastNameIsValid && enteredEmailIsValid) {
     isFormValid = true;
   }
 
@@ -106,7 +106,7 @@ const BasicForm = (props) => {
         )}
       </div>
       <div className='form-actions'>
-        <button disabled={isFormValid}>Submit</button>
+        <button disabled={!isFormValid}>Submit</button>
       </div>
     </form>
   );
